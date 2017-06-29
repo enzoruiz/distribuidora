@@ -4,10 +4,30 @@ from wtforms.fields.html5 import EmailField
 from wtforms.validators import Email, InputRequired, Length, EqualTo
 
 
+class LoginForm(FlaskForm):
+    username = StringField(
+                        'Usuario o Email',
+                        [
+                            InputRequired('Usuario o Email requerido.')
+                        ]
+                    )
+    password = PasswordField(
+                    'Contraseña',
+                    [
+                        InputRequired('Contraseña requerida.')
+                    ]
+                )
+
+
 class UserForm(FlaskForm):
-    username = StringField('Usuario', [InputRequired('Username requerido.')])
+    username = StringField(
+                        'Usuario (*)',
+                        [
+                            InputRequired('Username requerido.')
+                        ]
+                    )
     documento_identidad = StringField(
-                            'Nro. Documento',
+                            'Nro. Documento (*)',
                             [
                                 InputRequired('Nro. Documento requerido.'),
                                 Length(
@@ -18,7 +38,7 @@ class UserForm(FlaskForm):
                             ]
                         )
     email = EmailField(
-                    'Email',
+                    'Email (*)',
                     [
                         InputRequired('Email requerido.'),
                         Email('Ingrese un Email valido')
@@ -26,12 +46,18 @@ class UserForm(FlaskForm):
                 )
     telefono = StringField('Telefono')
     password = PasswordField(
-                    'Contraseña',
+                    'Contraseña (*)',
                     [
+                        InputRequired('Contraseña requerida.'),
                         EqualTo(
                             'confirm_password',
                             message='Las contraseñas deben ser iguales.'
                         )
                     ]
                 )
-    confirm_password = PasswordField('Confirmar Contraseña')
+    confirm_password = PasswordField(
+                            'Confirmar Contraseña (*)',
+                            [
+                                InputRequired('Confirme su contraseña.')
+                            ]
+                        )

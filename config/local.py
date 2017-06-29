@@ -11,3 +11,5 @@ SQLALCHEMY_DATABASE_URI = '%s://%s:%s@%s:%s/%s' % (
                             ENGINE, USER, PASSWORD, HOST, PORT, NAME
                         )
 SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+USE_SESSION_FOR_NEXT = True

@@ -12,8 +12,15 @@ login_manager = LoginManager()
 login_manager.login_view = 'login'
 login_manager.login_message = 'Necesitas iniciar sesion!'
 
+# VIEWS
 from apps.intranet.views import *
+from apps.ajustes.views import *
+from apps.negocio.views import *
+
+# MODELS
 from apps.intranet.models import *
+from apps.ajustes.models import *
+from apps.negocio.models import *
 
 if __name__ == '__main__':
     csrf.init_app(app)

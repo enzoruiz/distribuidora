@@ -1,0 +1,26 @@
+{% extends "base/base.html" %}
+
+{% block contenido %}
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Opciones</th>
+                </tr>
+                {% for um in lista %}
+                    <tr>
+                        <td align="center">{{ loop.index }}</td>
+                        <td>{{ um.nombre }}</td>
+                        <td>{{ um.cantidad }}</td>
+                        <td>
+                            <button type="button" name="button" class="btn btn-primary btn-xs">Editar</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

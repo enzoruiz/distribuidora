@@ -35,19 +35,20 @@ def home():
 @app.route('/registro', methods=['GET', 'POST'])
 @login_required
 def registro_user():
-    user_form = UserForm()
-    if user_form.validate_on_submit():
+    form = UserForm()
+    if form.validate_on_submit():
         user = User(
-            user_form.username.data,
-            user_form.documento_identidad.data,
-            user_form.email.data,
-            user_form.telefono.data,
-            user_form.password.data
+            form.username.data,
+            form.documento_identidad.data,
+            form.email.data,
+            form.telefono.data,
+            form.password.data
         )
         db.session.add(user)
         db.session.commit()
+        return redirect(url_for('home'))
 
-    return render_template('intranet/registro_user.html', form=user_form)
+    return render_template('intranet/registro_user.html', form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])

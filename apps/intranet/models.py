@@ -5,6 +5,8 @@ from distribuidora.run import db
 
 
 class User(UserMixin, db.Model):
+    __tablename__ = 'user'
+
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(45), unique=True)
     documento_identidad = db.Column(db.String(11), unique=True)
@@ -29,6 +31,8 @@ class User(UserMixin, db.Model):
 
 
 class Cliente(db.Model):
+    __tablename__ = 'cliente'
+
     id = db.Column(db.Integer, primary_key=True)
     id_user = db.Column(db.Integer, db.ForeignKey('user.id'))
     razon_social = db.Column(db.String(45))
@@ -41,6 +45,8 @@ class Cliente(db.Model):
 
 
 class Administrativo(db.Model):
+    __tablename__ = 'administrativo'
+
     id = db.Column(db.Integer, primary_key=True)
     id_user = db.Column(db.Integer, db.ForeignKey('user.id'))
     nombres = db.Column(db.String(45))

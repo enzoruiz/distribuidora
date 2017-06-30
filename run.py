@@ -10,6 +10,7 @@ csrf = CSRFProtect()
 db = SQLAlchemy()
 login_manager = LoginManager()
 login_manager.login_view = 'login'
+login_manager.login_message = 'Necesitas iniciar sesion!'
 
 from apps.intranet.views import *
 from apps.intranet.models import *

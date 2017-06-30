@@ -60,7 +60,6 @@ def login():
         if user:
             if check_password_hash(user.password, login_form.password.data):
                 login_user(user)
-                print(request.args.get('next'))
                 if request.args.get('next'):
                     next = request.args.get('next')
                     if not is_safe_url(next):

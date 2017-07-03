@@ -16,3 +16,18 @@ class UnidadMedidaForm(FlaskForm):
                         InputRequired('Cantidad requerida.')
                     ]
                 )
+
+
+class RolForm(FlaskForm):
+    nombre = StringField(
+                        'Nombre',
+                        [
+                            InputRequired('Nombre requerido.')
+                        ]
+                    )
+    descripcion = StringField(
+                    'Descripcion',
+                    [
+                        InputRequired('Descripcion requerida.')
+                    ]
+                )

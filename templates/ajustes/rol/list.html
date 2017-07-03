@@ -3,7 +3,7 @@
 {% block contenido %}
     <div class="row">
         <div class="col-md-offset-2 col-md-8">
-            <a href="{{ url_for('registro_unidad_medida') }}" class="btn btn-primary">Registrar Unidad Medida</a>
+            <a href="{{ url_for('registro_rol') }}" class="btn btn-primary">Registrar Rol</a>
         </div>
     </div>
     <div class="row">
@@ -12,17 +12,17 @@
                 <tr>
                     <th>#</th>
                     <th>Nombre</th>
-                    <th>Cantidad</th>
+                    <th>Descripcion</th>
                     <th>Opciones</th>
                 </tr>
-                {% for um in lista %}
+                {% for rol in lista %}
                     <tr>
                         <td align="center">{{ loop.index }}</td>
-                        <td>{{ um.nombre }}</td>
-                        <td>{{ um.cantidad }}</td>
+                        <td>{{ rol.nombre }}</td>
+                        <td>{{ rol.descripcion }}</td>
                         <td>
-                            <a href="{{ url_for('edicion_unidad_medida', id=um.id) }}" class="btn btn-primary btn-xs">Editar</a>
-                            <a href="{{ url_for('eliminar_unidad_medida', id=um.id) }}" class="btn btn-danger btn-xs">Eliminar</a>
+                            <a href="{{ url_for('edicion_rol', id=rol.id) }}" class="btn btn-primary btn-xs">Editar</a>
+                            <a href="{{ url_for('eliminar_rol', id=rol.id) }}" class="btn btn-danger btn-xs">Eliminar</a>
                         </td>
                     </tr>
                 {% endfor %}

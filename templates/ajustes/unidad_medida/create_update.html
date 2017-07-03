@@ -3,7 +3,7 @@
 
 {% block contenido %}
     <div class="row">
-        <h1 align="center">Crear Unidad Medida</h1>
+        <h1 align="center">{{ accion }} Unidad Medida</h1>
         <hr>
         <div class="col-md-offset-3 col-md-6">
             <form class="form-horizontal" method="POST">
@@ -12,7 +12,7 @@
                 {{ render_field(form.cantidad, class='form-control') }}
                 <div class="form-group">
                     <div class="col-sm-offset-5 col-sm-7">
-                        <button type="submit" name="button" class="btn btn-primary">Registrar</button>
+                        <button type="submit" name="button" class="btn btn-primary">{{ accion }}</button>
                     </div>
                 </div>
             </form>

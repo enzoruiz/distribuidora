@@ -27,6 +27,10 @@ class Rol(db.Model):
                         'RolAdministrativo', backref='rol', lazy='dynamic'
                     )
 
+    def __init__(self, nombre, descripcion):
+        self.nombre = nombre
+        self.descripcion = descripcion
+
 
 class RolAdministrativo(db.Model):
     __tablename__ = 'rol_administrativo'

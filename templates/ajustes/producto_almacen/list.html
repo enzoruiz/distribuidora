@@ -1,0 +1,38 @@
+{% extends "base/base.html" %}
+
+{% block contenido %}
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <a href="{{ url_for('registro_producto_almacen') }}" class="btn btn-primary">Registrar Producto en Almacen</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <th>#</th>
+                    <th>Almacen</th>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Compra</th>
+                    <th>Precio Venta</th>
+                    <th>Opciones</th>
+                </tr>
+                {% for um in lista %}
+                    <tr>
+                        <td align="center">{{ loop.index }}</td>
+                        <td>{{ um.almacen.nombre }}</td>
+                        <td>{{ um.producto.nombre }}</td>
+                        <td>{{ um.cantidad }}</td>
+                        <td>{{ um.precio_compra }}</td>
+                        <td>{{ um.precio_venta }}</td>
+                        <td>
+                            <a href="{{ url_for('edicion_producto_almacen', id=um.id) }}" class="btn btn-primary btn-xs">Editar</a>
+                            <a href="{{ url_for('eliminar_producto_almacen', id=um.id) }}" class="btn btn-danger btn-xs">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

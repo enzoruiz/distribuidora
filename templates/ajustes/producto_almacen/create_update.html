@@ -1,0 +1,25 @@
+{% extends "base/base.html" %}
+{% from "base/_macro_fields.html" import render_field %}
+
+{% block contenido %}
+    <div class="row">
+        <h1 align="center">{{ accion }} Producto en Almacen</h1>
+        <hr>
+        <div class="col-md-offset-3 col-md-6">
+            <form class="form-horizontal" method="POST">
+                {{ form.csrf_token }}
+                {{ render_field(form.id_almacen, class='form-control') }}
+                {{ render_field(form.id_producto, class='form-control') }}
+                {{ render_field(form.cantidad, class='form-control') }}
+                {{ render_field(form.precio_compra, class='form-control') }}
+                {{ render_field(form.precio_venta, class='form-control') }}
+                {{ render_field(form.fecha_ingreso, class='form-control') }}
+                <div class="form-group">
+                    <div class="col-sm-offset-5 col-sm-7">
+                        <button type="submit" name="button" class="btn btn-primary">{{ accion }}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

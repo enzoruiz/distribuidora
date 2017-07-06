@@ -1,0 +1,22 @@
+{% extends "base/base.html" %}
+{% from "base/_macro_fields.html" import render_field %}
+
+{% block contenido %}
+    <div class="row">
+        <h1 align="center">{{ accion }} Rol de Administrativo</h1>
+        <hr>
+        <div class="col-md-offset-3 col-md-6">
+            <form class="form-horizontal" method="POST">
+                {{ form.csrf_token }}
+                {{ render_field(form.id_rol, class='form-control') }}
+                {{ render_field(form.id_administrativo, class='form-control') }}
+                {{ render_field(form.estado, class='form-control') }}
+                <div class="form-group">
+                    <div class="col-sm-offset-5 col-sm-7">
+                        <button type="submit" name="button" class="btn btn-primary">{{ accion }}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

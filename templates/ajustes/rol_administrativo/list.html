@@ -1,0 +1,34 @@
+{% extends "base/base.html" %}
+
+{% block contenido %}
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <a href="{{ url_for('registro_rol_administrativo') }}" class="btn btn-primary">Registrar Rol de Administrativo</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-2 col-md-8">
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <th>#</th>
+                    <th>Almacen</th>
+                    <th>Producto</th>
+                    <th>Estado</th>
+                    <th>Opciones</th>
+                </tr>
+                {% for um in lista %}
+                    <tr>
+                        <td align="center">{{ loop.index }}</td>
+                        <td>{{ um.rol.nombre }}</td>
+                        <td>{{ um.administrativo.nombres }} {{ um.administrativo.apellidos }}</td>
+                        <td>{{ um.estado }}</td>
+                        <td>
+                            <a href="{{ url_for('edicion_rol_administrativo', id=um.id) }}" class="btn btn-primary btn-xs">Editar</a>
+                            <a href="{{ url_for('eliminar_rol_administrativo', id=um.id) }}" class="btn btn-danger btn-xs">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -61,3 +61,30 @@ class UserForm(FlaskForm):
                                 InputRequired('Confirme su contraseña.')
                             ]
                         )
+
+
+class ClienteForm(FlaskForm):
+    razon_social = StringField(
+                        'Razon Social',
+                        [
+                            InputRequired('Razon Social requerido.')
+                        ]
+                    )
+    direccion = StringField(
+                    'Direccion',
+                    [
+                        InputRequired('Direccion requerida.')
+                    ]
+                )
+    ubigeo = StringField(
+                    'Ubigeo',
+                    [
+                        InputRequired('Ubigeo requerido.')
+                    ]
+                )
+    representante_legal = StringField(
+                    'Representante Legal',
+                    [
+                        InputRequired('Representante Legal requerida.')
+                    ]
+                )
